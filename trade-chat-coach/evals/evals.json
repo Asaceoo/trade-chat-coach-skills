@@ -1,6 +1,6 @@
 {
   "skill_name": "trade-chat-coach",
-  "note": "评测执行档案（2026-10-07 更新）。完整输出见 ./workspace\\iteration-{1..7}\\。合成夹具在 fixtures/（含中英俄三语）。",
+  "note": "评测执行档案（2026-10-07 更新）。完整输出见 D:\\deepseek\\trade-chat-coach-workspace\\iteration-{1..7}\\。合成夹具在 fixtures/（含中英俄三语）。",
   "evals": [
     {"id": 0, "name": "en-price-collector", "prompt": "客户发来聊天截图只问价+嫌贵，是真的想买吗？", "fixture": "case1_price_collector.png", "status": "passed", "variant_compare": "with_skill vs without_skill"},
     {"id": 1, "name": "en-genuine-buyer", "prompt": "荷兰客户两封邮件，靠谱吗？下一步做什么？", "fixture": "case2_genuine_buyer_p1/p2.png", "status": "passed", "variant_compare": "with_skill vs without_skill"},
