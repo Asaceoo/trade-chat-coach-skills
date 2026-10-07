@@ -80,6 +80,32 @@
 
 **与技能印证**：① 逼单不强迫=`objections.md` 给选择权；② 翻译"贵"=`signals.md`（压价动机拆解）+`negotiation.md`；⑤ 让步曲线=`negotiation.md` 让步阶梯；⑥ 催款心理战=`web-corpus.md` 1.2 收款层；⑦ 转介绍话术设计=技能此前较弱项的又一次补强。
 
+## 9 GitHub 同类技能对比研究（2026-10-07，`research\github_sales_skills_study.md`）
+
+调研了 Agent Skills 生态的销售类技能，**取长补短**：
+
+### 9.1 生态概况
+- **anthropics/skills（官方）**：23 个技能——全是生产力类（docx/pptx/mcp-builder/skill-creator），**无销售类**。我们的赛道在官方生态是空白。
+- **lionelsimai/claude-skills-collection**：5153 个技能/106 类——但销售类是**空壳模板**（38 行，只有四步通用工作流，无实质内容）。
+- **louisblythe/Sales-Skills**：**122 个销售技能**——最强同类，AI SDR 向（自动化外呼机器人视角），质量高。
+
+### 9.2 louisblythe 精华与我们的差异
+
+| 它的技能 | 它的精华 | 我们的状态 | 借鉴动作 |
+|---|---|---|---|
+| **ghost-recovery-sequences** | **Ghost vs Dead 区分**：Ghost（曾互动、没说 No、只是忙）可复活（10-20% 复活率）；Dead（明确拒绝/选了竞品/联系人离职）不可复活——**两种要区别对待** | `signals.md` 有"沉默不是信号"，但没有 Ghost/Dead 的**显式二分判定** | ✅ 已补进 1.22 节 |
+| **objection-handling** | "**Objections are information, not rejection**"（异议是信息不是拒绝；没有异议往往=没兴趣）； stated objection 很少是真 objection | `objections.md` 已有"异议是没被满足的需求在说话" | 印证一致 |
+| **pricing-negotiation** | "**Trade, Don't Cave**"（换而不让）+ **Initial Assessment 三问**（deal size/竞品态势/杠杆；真预算 vs 姿态；新客户 vs 老客户+走开成本） | `negotiation.md` 让步阶梯已有 | 补"Initial Assessment 三问"结构 |
+| **follow-up-discipline** | 坚持但尊重的节奏纪律 | `templates.md` D0-D21 已有 | 印证 |
+
+### 9.3 我们的差异化优势（对比后的定位确认）
+1. **它们没有的**：中文场景、微信生态、内贸合规（招投标/回扣/垫资）、截图输入、OCR 兜底、红线过滤、A/B/C 数据审计、批量/实时模式。
+2. **它们的视角是 AI SDR 机器人开发**（给开发者建自动化外呼系统）；**我们的视角是业务员个人教练**（给人用）。目标用户不同，不冲突。
+3. **可学习**：它们一技能一文件的细粒度（122 个）；我们 16 文件聚合+路由表，对人类用户更友好，保持。
+
+### 9.4 已入库的借鉴内容
+见 `domestic-corpus.md` 1.22 节（Ghost/Dead 判定）与 `negotiation.md`（Initial Assessment 三问）。
+
 ## 8 小红书语料（CDP 登录 Chrome 实抓，6 主题，2026-10-07）
 
 > 突破：登录态 Chrome 解锁小红书搜索。原始语料 `research\xhs_corpus_20261007.md`。
