@@ -161,3 +161,40 @@ python release_pipeline_v2.py --minor --message "…"  # 正式发布
 | 2 | 资产上传失败后，**已推送成功的本地版本号被回滚**成旧值，出现"远端 2.8.0 / 本地 2.7.0"不一致 | 为防"改一半失败"加了发布前快照 + 失败自动回滚，但**回滚没区分"远端是否已固化"**——`git push` 已成功时远端已是新版本，此时回滚本地即制造不一致 | 在 `git push` 成功后**立即清除回滚快照**：一旦推送成功即视为已固化，后续步骤失败只报错、不再回滚本地 |
 
 > **教训**：回滚的边界是**最后一道不可逆动作**（push / 发布），不是"整个流程的结束"。跨过不可逆点之后，本地要向已固化的远端对齐，而不是把本地拖回去。
+
+### 7.5 Git 凭据弹窗挂死（v2.8.1 实测，已根治）
+
+**症状**：跑发布流水线时弹出 Git Credential Manager 的「Select an account」GUI 框（列出 `Asaceoo` 与 `x-access-token` 两个账号），
+`git credential fill` 子进程无输入一直等待 → **30 秒 TimeoutExpired**，Release 步骤失败（此时代码往往已推送成功，属第 7.4 条 #2 的同款半成品状态）。
+
+**根因**：本机凭据库同时存在**两个 GitHub 账号**，GCM 无法判断用哪个 → 升级为交互式选择。
+而 `subprocess.run(["git", "credential", "fill"], ...)` 默认继承了可交互环境，**没有禁用 GCM 的 GUI**。
+
+**修复**（`gh_token()` 与 `run()` 双侧加固）：
+```python
+env.update({
+    "GIT_TERMINAL_PROMPT": "0",   # 禁终端提问
+    "GCM_INTERACTIVE":     "never",  # ← 关键：禁 GCM 账号选择弹窗
+    "GIT_ASKPASS": "",
+    "SSH_ASKPASS": "",
+})
+subprocess.run(..., env=env, stdin=subprocess.DEVNULL, timeout=15)
+```
+并且 `run()` 里**所有 git 子进程**（add/commit/push）都带上 `GIT_TERMINAL_PROMPT=0` + `GCM_INTERACTIVE=never`。
+
+**推荐用法（最稳，绕开凭据库）**：显式注入环境变量，token 不落盘、不写日志、不进记忆：
+```powershell
+$env:GH_TOKEN = "<your-PAT>"
+python release_pipeline_v2.py --patch --message "..."
+```
+`gh_token()` 现在**优先读 `GH_TOKEN` / `GITHUB_TOKEN`**，只有在没有环境变量时才回落凭据库，且回落路径也已非交互化。
+
+> **安全提醒**：PAT 一旦出现在聊天记录、日志或版本库里，即视为**已泄露**，应立即到 GitHub Settings → Developer settings → Fine-grained tokens 吊销并重发。
+> 本流水线不会把 token 写入任何文件；排查时也用 `长度` / `是否非空` 断言，而不打印明文。
+
+### 7.6 版本历史（发布记录）
+
+| 版本 | 交付 |
+|---|---|
+| v2.8.1 | 新增 `phrasebank-price.md` §1.5「嫌贵进阶」（知乎 18 条内容级正文：报价前四资格题 / 「和什么比？」一句话诊断 / 问折扣三种含义 / 报价留余地与非价格让利算术 / 不自己拒绝客户）；Git 凭据弹窗根治 |
+| v2.8.0 | 3 份原话术库 + B站 1380 条语料实证层 + 三视角对抗性审查收敛（R1+R2 共 82 项）+ 发布流水线 v2 + Release 资产名 ASCII 守卫 |
