@@ -4,7 +4,7 @@ display_name: "客户聊天教练（内贸优先）"
 display_name_en: "Foreign Trade Chat Coach"
 description: "从客户聊天截图/记录里读出真实意图，并给出能推进到下单的下一步动作与原话术。国内销售优先、外贸同样适用：当用户上传 微信 / QQ / WhatsApp / 邮件 / 阿里国际站 / Telegram 等客户聊天截图或粘贴对话文本（客户说中文、英文、俄语、西语、阿语等都可以），或问『这个客户是不是真的要买』『客户已读不回怎么办』『他嫌价格高怎么回』『这个询盘是不是骗子』『怎么催单』『怎么催款』『怎么谈判让价』『客户有异议怎么处理』『客户要回扣／返点怎么办』『他要打私人账户怎么办』，涉及 陌拜、电话销售、客户拜访、招投标、渠道、会销、内贸大客户 等国内销售场景，或说『这几个客户一起看看』『正在聊快帮我回』（批量台账模式 / 实时模式）时使用。核心流程：重建对话事实 → 四必答题（最终目的 / 何时要什么 / 何时付款 / 信任度）→ 判定真买·比价·探路·风险 → 输出诊断卡、三个必问问题、可直接发送的回复草稿与跟进节奏。内置 20 个话术与方法论库（含 3 份可直接抄的原话术库：phrasebank-eq-cn 沟通情境 / phrasebank-price 议价 / phrasebank-closing 引导下单）。分析固定用中文，回复草稿跟随客户语言。凡是涉及客户跟进、报价前判断、砍价谈判、催单、催款、客户分层、异议处理、陌拜、拜访、招投标，即使没提到『技能』也要用。"
 description_en: "Diagnose a buyer's real intent from chat screenshots or transcripts, then give the next move and ready-to-send replies. Domestic Chinese B2B sales first; export sales supported. Use when the user uploads WeChat / QQ / WhatsApp / email / Alibaba / Telegram chat screenshots or pastes a conversation, or asks whether a buyer is genuine, why a buyer went silent, how to answer 'your price is too high', whether an inquiry is a scam, how to follow up, collect payment, handle objections, or close the deal — including cold visits, phone sales, tenders, channels, and enterprise sales. Workflow: rebuild the facts, answer the four mandatory questions (end purpose / timing & specs / payment / trust), classify the buyer as genuine / price collector / explorer / risk, then output a diagnosis card, three must-ask questions, drafts in the customer's language, and a follow-up cadence. Analysis in Chinese; drafts follow the customer's language."
-version: "2.8.0"
+version: "2.8.1"
 agent_created: true
 ---
 
