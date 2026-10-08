@@ -1,5 +1,7 @@
 # 来源书目与数据可靠性
 
+> ⚠️ **溯源说明**：本文件提到的 `research\*.md`、`research_toolbox/*`、`_weread_raw.csv` 等是**包外溯源文件**——**不在本技能包内**（`.skill` / zip 都不含），只存在于**作者本机的调研工作区**，**换机后不存在**。用途是**追溯数据来源**；其中 `research_toolbox/*` 是**可执行的抓取脚本**、`research\*.md` 是调研记录，**需自行确认存在后再使用**。
+
 这份文件是整本技能的知识审计清单：**每个框架来自哪本书、评分如何、数据可靠到什么程度、哪些流行说法查无实据。**
 
 ## 0 可靠性分级约定
@@ -210,7 +212,7 @@
 | 平台 | 已核实开源方案 | 结论 |
 |---|---|---|
 | **微信读书** | `oppplll/weread-scraper`(16★,油猴 HTML)、`SteamChick/weread_scraper2MD`(Playwright→MD)、`dodio12138/weread-shelf-crawler`(扫码)、`tamnd/weread-cli`(Go CLI) | **成熟**。技术内核：网页端 `POST /web/book/publicchapterInfos`+`chapterInfos` API + **Canvas fillText 拦截**（正文画在 Canvas）+ 去 `.wr_mask` 付费遮罩。**绑定 CDP 登录态**可得 `wr_vid`/`wr_skey` cookie 直接喂入。实测 `publicchapterInfos` 未登录返回空——**内容级抓取仍靠 EasySpider 已验证管线** |
-| **豆瓣读书** | `selfconzrr/douban_book_scraper`(42★,9分榜)、`rogerzhu/DoubanBooks`(24★) | 公开元数据金矿（评分/简介/目录），已建 `douban_books.md` |
+| **豆瓣读书** | `selfconzrr/douban_book_scraper`(42★,9分榜)、`rogerzhu/DoubanBooks`(24★) | 公开元数据金矿（评分/简介/目录），已建 `trade-chat-coach-workspace/research/douban_books.md`（**包外文件，仅溯源用**） |
 | **B站** | `iawia002/lux`(**31.7k★**,视频下载 含B站/iQiyi/YT)、`Smart75850/smart-agent`(5平台纯HTTP)、B站公开 API | 公开销售谈判课程/UP主讲解金矿，lux 可下视频→whisper 转写 |
 | **小红书** | `TikHub`(903★多平台SDK)、`creatorhub`(2225★Web面板)、`xiaofuqing13/redbooks`(**DrissionPage,GUI+SQLite**)、`z-mio/ParseHub`(175★异步)、`tmwgsicp/ForgeRSS`(132★转RSS) | 已用 MediaCrawler；redbooks 是**数据源经 `window.__INITIAL_STATE__`**（DOM 只是降级）——印证 xhs OCR 前先读 SPA state |
 | **知乎** | MediaCrawler `--platform zhihu`（**本轮已跑通**） | 已验证 |

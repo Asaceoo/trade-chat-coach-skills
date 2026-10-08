@@ -1,11 +1,12 @@
 ---
 name: trade-chat-coach
-display_name: "客户聊天教练（内贸优先）"
-display_name_en: "Foreign Trade Chat Coach"
-description: "从客户聊天截图/记录里读出真实意图，并给出能推进到下单的下一步动作与原话术。国内销售优先、外贸同样适用：当用户上传 微信 / QQ / WhatsApp / 邮件 / 阿里国际站 / Telegram 等客户聊天截图或粘贴对话文本（客户说中文、英文、俄语、西语、阿语等都可以），或问『这个客户是不是真的要买』『客户已读不回怎么办』『他嫌价格高怎么回』『这个询盘是不是骗子』『怎么催单』『怎么催款』『怎么谈判让价』『客户有异议怎么处理』『客户要回扣／返点怎么办』『他要打私人账户怎么办』，涉及 陌拜、电话销售、客户拜访、招投标、渠道、会销、内贸大客户 等国内销售场景，或说『这几个客户一起看看』『正在聊快帮我回』（批量台账模式 / 实时模式）时使用。核心流程：重建对话事实 → 四必答题（最终目的 / 何时要什么 / 何时付款 / 信任度）→ 判定真买·比价·探路·风险 → 输出诊断卡、三个必问问题、可直接发送的回复草稿与跟进节奏。内置 23 个话术与方法论库（含 5 份可直接抄的原话术库：phrasebank-eq-cn 沟通情境 / phrasebank-price 议价 / phrasebank-closing 引导下单 / phrasebank-bidan 逼单成交转译公式 / phrasebank-followup 跟进破冰；另有 channel-sales 渠道销售）。分析固定用中文，回复草稿跟随客户语言。凡是涉及客户跟进、报价前判断、砍价谈判、催单、催款、客户分层、异议处理、陌拜、拜访、招投标、渠道，即使没提到『技能』也要用。"
-description_en: "Diagnose a buyer's real intent from chat screenshots or transcripts, then give the next move and ready-to-send replies. Domestic Chinese B2B sales first; export sales supported. Use when the user uploads WeChat / QQ / WhatsApp / email / Alibaba / Telegram chat screenshots or pastes a conversation, or asks whether a buyer is genuine, why a buyer went silent, how to answer 'your price is too high', whether an inquiry is a scam, how to follow up, collect payment, handle objections, or close the deal — including cold visits, phone sales, tenders, channels, and enterprise sales. Workflow: rebuild the facts, answer the four mandatory questions (end purpose / timing & specs / payment / trust), classify the buyer as genuine / price collector / explorer / risk, then output a diagnosis card, three must-ask questions, drafts in the customer's language, and a follow-up cadence. Analysis in Chinese; drafts follow the customer's language."
-version: "2.9.0"
-agent_created: true
+description: "从客户聊天截图/记录里读出真实意图，并给出能推进到下单的下一步动作与原话术。国内销售优先、外贸同样适用：当用户上传 微信 / QQ / WhatsApp / 邮件 / 阿里国际站 / Telegram 等客户聊天截图或粘贴对话文本（客户说中文、英文、俄语、西语、阿语等都可以），或问『这个客户是不是真的要买』『客户已读不回怎么办』『他嫌价格高怎么回』『这个询盘是不是骗子』『怎么催单』『怎么催款』『怎么谈判让价』『客户有异议怎么处理』『客户要回扣／返点怎么办』『他要打私人账户怎么办』，涉及 陌拜、电话销售、客户拜访、招投标、渠道、会销、内贸大客户 等国内销售场景，或说『这几个客户一起看看』『正在聊快帮我回』（批量台账模式 / 实时模式）时使用。核心流程：重建对话事实 → 四必答题（最终目的 / 何时要什么 / 何时付款 / 信任度）→ 判定真买·比价·探路·风险 → 输出诊断卡、三个必问问题（问客户）与「我方三项确认」、可直接发送的回复草稿与跟进节奏。内置 23 个话术与方法论库（含 5 份可直接抄的原话术库：phrasebank-eq-cn 沟通情境 / phrasebank-price 议价 / phrasebank-closing 引导下单 / phrasebank-bidan 逼单成交转译公式 / phrasebank-followup 跟进破冰；另有 channel-sales 渠道销售）。分析固定用中文，回复草稿跟随客户语言。凡是涉及客户跟进、报价前判断、砍价谈判、催单、催款、客户分层、异议处理、陌拜、拜访、招投标、渠道，即使没提到『技能』也要用。"
+metadata:
+  display_name: "客户聊天教练（内贸优先）"
+  display_name_en: "Foreign Trade Chat Coach"
+  description_en: "Diagnose a buyer's real intent from chat screenshots or transcripts, then give the next move and ready-to-send replies. Domestic Chinese B2B sales first; export sales supported. Use when the user uploads WeChat / QQ / WhatsApp / email / Alibaba / Telegram chat screenshots or pastes a conversation, or asks whether a buyer is genuine, why a buyer went silent, how to answer 'your price is too high', whether an inquiry is a scam, how to follow up, collect payment, handle objections, or close the deal — including cold visits, phone sales, tenders, channels, and enterprise sales. Workflow: rebuild the facts, answer the four mandatory questions (end purpose / timing & specs / payment / trust), classify the buyer as genuine / price collector / explorer / risk, then output a diagnosis card, three must-ask questions, drafts in the customer's language, and a follow-up cadence. Analysis in Chinese; drafts follow the customer's language."
+  version: "2.9.1"
+  agent_created: true
 ---
 
 # 客户聊天教练（内贸优先 · 外贸同样适用）
@@ -54,12 +55,24 @@ agent_created: true
 - ⚠️ **优先级声明（本条覆盖下文五步流程的输出要求，冲突时以本条为准）**：模式 C 只在**输出层**省略四必答题；**判定层仍须内部答完四题**，答不上来的那题就变成第一条"确认问题"。模式 B 同理，只输出压缩卡。**完整四必答题表仅在模式 A 输出。**
 - 信息不足时，第一条必须是"确认问题"而不是瞎回；若判定结果极其重要（如疑似诈骗），用一行标红提醒即可。
 
+**模式 D：单点咨询**——触发词："帮我写一条…""这句话怎么说""这个政策怎么处理""这样合规吗""XX 场景怎么办"。
+用户**不是**让你诊断某个客户，而是**问你一件事**。
+- 触发判据：**没有具体客户对话**（无截图、无对话文本），或用户问的是**方法论/合规/写法**而非"这个客户怎么回事"。
+- 输出 **1–3 句可直接用的内容 + 一句依据 + 一句红线**（若涉及）。**不要**套 8 节诊断卡。
+- 若用户虽问"怎么写"但**给了具体客户上下文**，则**不是模式 D**，按模式 A/C 处理（要判定）。
+- ⚠️ **模式 D 仍受读取额度约束**，且**若它回答里要用到事实性内容（案例/限量/数据），必须遵守 §「前提真实性」闸门**。
+
+> **为什么要有模式 D**：早先只定义了三种模式（A 单客户完整诊断 / B 批量台账 / C 实时回复），
+> 但真实请求里有大量"**帮我写一条跟进消息**""**这个渠道问题怎么破**""**客户要返点怎么处理**"这类**单点咨询**——
+> 它们既不需要 8 节诊断卡，也不属于 A/B/C。缺这个模式时，使用方只能自己猜该出长还是短（实测中确实发生了）。
+> 补齐后：**有具体客户 → A/B/C；只有一件事要问 → D**。
+
 ## 输入处理（截图优先）
 
 用户最常见的输入是几张聊天截图，顺序和残缺会直接决定判断对错。
 
 1. **逐张读图**，按时间顺序重建对话。多张时先确认顺序（看时间戳/滚动位置）；顺序错了，整个判断就错了。必要时在输出里写明"我按 X 顺序理解"。
-   - **读图失败的兜底（优先级递进）**：① 首选本机 PaddleOCR Python 包（`C:\Users\iamly\.paddleocr-venv\Scripts\python.exe D:\deepseek\research_toolbox\ocr_paddle.py <截图>`）；② 备选 PaddleOCR-json（`D:\deepseek\research_toolbox\ocr.py <截图>`）；③ 都不可用时，告诉用户"麻烦把这屏对话文字贴给我"并确认关键字段。
+   - **读图失败的兜底（优先级递进）**：① 首选本机 PaddleOCR Python 包（`C:\Users\iamly\.paddleocr-venv\Scripts\python.exe D:\deepseek\research_toolbox\ocr_paddle.py <截图>`；⚠️ **包外脚本，换机需先确认存在**）；② 备选 PaddleOCR-json（`D:\deepseek\research_toolbox\ocr.py <截图>`）；③ 都不可用时，告诉用户"麻烦把这屏对话文字贴给我"并确认关键字段。
      - ⚠️ 上述为**本机路径**，换机/换用户环境需自行替换（可用 `Test-Path` 先探活）。
    - ⚠️ **OCR 的两个已知偏差（会直接影响判断，务必处理）**：
      (a) **置信度实测 0.90–1.00**，不是 0.95 起步；**低置信行往往恰是关键问句**（如"含不含运费和安装？"），不要因为分数低就跳过，低于 0.90 的行标"存疑"。
@@ -90,7 +103,7 @@ agent_created: true
 | **BATNA** | 这张单丢了会怎样、有没有替代客户 | 没有退路就没底气守价（见 `negotiation.md`） |
 | **付款/交付底线** | 首单能不能赊、最短交期 | 触犯收款铁律（见 `phrasebank-price.md` §3.1） |
 
-> 规则：**这 5 项缺 3 项以上时，不要出报价话术**，改用"三个必问问题"先问用户补齐；
+> 规则：**这 5 项缺 3 项以上时，不要出报价话术**，改用「**我方三项确认**」（定义见下文「输出模板」§5.1；**该小节位于输出模板的代码围栏内**，上方已把它的完整内容抄录于此，**不必再去围栏里找**）先问用户补齐；
 > 若只能出含 `[X]` 占位符的草稿，必须按下方「占位符规则」处理，不得让用户收到一串看不懂的括号。
 
 这一步的意义：把"印象"压回"证据"。人容易记住自己想听的，表格不会。
@@ -142,7 +155,7 @@ agent_created: true
 2. **能从一个值推出全句时，只留一个占位符**，不要每处都留。
 3. **填不出时删「短语」，不删「句子」**——保住这句话要达成的沟通目的：
    - `交期 [X] 天` 填不出 → 改成 `交期我可以去确认`，**而不是**整句删掉
-4. **一个草稿里超过 3 个占位符 → 不要发这版草稿**，改成先问用户（用"三个必问问题"），
+4. **一个草稿里超过 3 个占位符 → 不要发这版草稿**，改成先问用户（用「**我方三项确认**」，见「输出模板」§5.1），
    或降级成"不含数字但能推进一级"的版本（如 `Prijs kan ik regelen, maar ik heb eerst je hoeveelheid nodig.`）。
 
 > 参照 `zh-playbook.md`：`[ ]` 不填就别发——本规则是它的**可执行版本**（管填空不出时怎么退，而不只是"别发"）。
@@ -175,7 +188,28 @@ agent_created: true
 - 风险信号：
 - 反向证据（如果判错，最可能错在哪）：
 
-## 5 三个必问问题
+## 5 提问清单：分清「问我方」与「问客户」
+
+> ⚠️ **术语修正（v2.9.1）**：早先「三个必问问题」一词被用在**两个不同的地方**——
+> 一处指"先问**用户**（你的销售同事/你自己）补齐我方信息"，一处指"用**客户语言**问客户"。
+> 同一个名字指两件事，使用方无法判断该问谁。现拆成两个名字：
+> - **§5.1 我方三项确认** —— 问**用户**，补齐我方信息，缺 3 项以上时**必须**先问
+> - **§5.2 问客户的三个问题** —— 用**客户语言**写，可直接复制发送
+
+### 5.1 我方三项确认（问**用户**，不是问客户）
+
+> **触发条件**：Step 1 的「我方信息」表**缺 3 项以上**时，**先问用户，不要出报价/让价话术**。
+
+必须问到的三件事（对应 `Step 1` 那张我方信息表里最关键的三项）：
+1. **价格口径**：这个价是单价还是总价？含不含税、运费、安装？
+2. **底价与权限**：能让到哪？超过多少要谁批？
+3. **非价格筹码**：质保、账期、排期、培训、运费——你手上能动的有哪几项？
+
+（若这三项已有答案，可依 `Step 1` 表继续补 BATNA 与付款/交付底线。）
+
+### 5.2 问客户的三个问题（用**客户语言**，可直接复制）
+
+格式：`1. <客户语言原句> ｜ 中文 ｜ 为什么问它 ｜ 他可能怎么答 → 你怎么接`
 1. <客户语言原句> ｜ 中文 ｜ 为什么问它 ｜ 他可能怎么答 → 你怎么接
 2. …
 3. …
@@ -203,7 +237,7 @@ agent_created: true
 **输入**：客户 WhatsApp 只发过三句——"Hello, price?"、"Send best price"、"Your price is too high. Other supplier cheaper."（无规格、无数量、无目的港）。
 
 > ⚠️ **下面是为控制篇幅做的节选**。**真实输出必须包含「输出模板」的全部 8 节**。
-> **本示范实际省略了：`## 3 需求翻译`、`## 4 判定依据`、`## 5 三个必问问题`、`## 8 红线`**（另 §1 事实表只印 3 行示范格式，真实输出要覆盖模板要求的 **9 个字段**）。
+> **本示范实际省略了：`## 3 需求翻译`、`## 4 判定依据`、`## 5 提问清单（5.1 问我方 / 5.2 问客户）`、`## 8 红线`**（另 §1 事实表只印 3 行示范格式，真实输出要覆盖模板要求的 **9 个字段**）。
 > **省略只是为了省地方，不是可以少写** —— 不要把"节选"当成"输出就该这么短"。
 
 **合格输出**（节选；§1 只印 3 行示范表格式）：
@@ -230,7 +264,7 @@ agent_created: true
 | 付款 | 空白 | — | （留到第 2-3 轮筛） |
 | 信任度 | 1/5 | 排第几未知 | 用条件报价测试 |
 
-> ⏩ **（此处省略 §3 需求翻译、§4 判定依据、§5 三个必问问题——真实输出必须有，见上方「输出模板」）**
+> ⏩ **（此处省略 §3 需求翻译、§4 判定依据、§5 提问清单（5.1 问我方 / 5.2 问客户）——真实输出必须有，见上方「输出模板」）**
 
 ## 6 现在就能发的话术
 **版本 1 · 追问型（首选）**
@@ -281,12 +315,18 @@ agent_created: true
 - **输出谈判/催单类"姿态技巧"话术前，先做"前提真实性"校验**（本技能姿态话术的前置闸门，逐条自问）：
   ① 让步是否**真要收回**？② 折扣是否**真给了**？③ 对方报价是否**真离谱**？④ 时间锚（排期／政策期／库存）是否**真实存在**？
   **四条里任一条不成立，就换用"实价 / 实条件"版本，不输出姿态版。** 编造稀缺、假审批、假"客户已经定了"、假"最后名额"都属禁止之列。
+- 🚫 **不做这三件事**（渠道/竞品/大客户场景最常被索要，**一律拒绝**）：
+  ① **挖竞品黑料**——打听或散布对手负面；
+  ② **串通价格**——与同行约定报价、划分客户或区域；
+  ③ **暗中返点**——对渠道/采购私下给好处、走私人账户。
+  这三条不是"技巧激进"，是**违法或商业贿赂**（法律定性见 `zh-playbook.md` S16）。
+  替代做法：把优惠搬到明面（数量折扣 / 账期 / 配置 / 培训 / 延保）。
 - 判断是概率不是判决。给结论时**同时给置信度和"如果错了会错在哪"**，让用户能用一次对话去验证，而不是拿结论当事实。
 - 涉及付款、合同、制裁与合规的最终决策，提示用户以银行/信保/律师的确认为准。
 
 ## 参考资料（路由表：遇到什么读什么）
 
-> **记号**：📗 = B站原始语料（可追溯，C 级平台实证）｜🏆 = 高赞语料（注明赞数）｜📘 = 方法论提炼（非实证）｜👍N = 点赞数
+> **记号**：📗 = 平台语料层（B站/知乎/小红书的 UGC，**可追溯，非权威**，可作观点/常识引用）｜📘 = 方法论提炼（**非实证**，本技能归纳）｜🏆 = 高赞语料（须注明赞数）｜⭐ = 编者标注的"最实用一条"｜👍N = 该条点赞数
 > **术语**：**实证级 A/B/C** 指来源可靠性（见 `sources.md`）；**客户分档 P1/P2/P3** 指跟进优先级（见 `framework.md` 第 6 节）。两者不是一回事。
 > 本文件所在目录即技能根目录，下文 `references/` 均相对本目录。
 
@@ -297,33 +337,47 @@ agent_created: true
 
 | 阶段 | 额度 | 怎么选 |
 |---|---|---|
-| **判定层**（Step 1–2） | **≤ 2 个** | 默认 `signals.md` + `framework.md`；**中文客户**把 `framework.md` 换成 `zh-playbook.md` |
+| **判定层**（Step 1–2） | **≤ 2 个**（最多 3，见破例） | 默认 `signals.md` + `framework.md`；**中文客户**把 `framework.md` 换成 `zh-playbook.md` |
 | **推进层**（Step 5，判定之后） | **≤ 1 个** | 按下表"唯一入口"挑 1 个 |
-| **全程** | **≤ 3 个** | 超过 3 个必须在输出里写明"为什么第 4 个不可省" |
+| **全程** | **≤ 3 个（硬上限，无例外）** | 见下方"额度如何结算" |
 
-1. **先判断，再说话**：任何"怎么说话"类文件，都必须在**完成 Step 2 判定之后**才读，否则会退化成报价机器人。
+**额度如何结算（这一条消除全部歧义）**
+- 判定层用 **2** 个 → 推进层可读 **1** 个 → 合计 **3** ✅
+- 判定层用 **3** 个（走破例）→ **推进层归零**，不得再读新文件 → 合计仍是 **3** ✅
+- **任何情况下都不得超过 3 个**。若你认为非读第 4 个不可，**不要静默超支**——在输出里写明原因，并**只读该文件的一个章节**（用 `§` 定位）。
+
+1. **先判断，再说话**：任何"怎么说话"类文件，都必须在**完成 Step 2 判定之后**才**使用**（见下方"混合型文件"说明）。
 2. **命中多个候选时读"专项"，不读"通用"**：下表每行已给**唯一入口**；"备选"仅在前者不够用时再读。
-3. 20 个文件全读 ≈ **69k–110k token**，**禁止**。
+3. 23 个文件全读 ≈ **80k–130k token**，**禁止**。
 
 **判定层的两个位置（这就是"判断这个客户怎么回事"的全部所需）**
 - **固定**：`references/signals.md` —— 真买/比价/探路/风险信号词典 + 置信度标定
 - **第二个位置（二选一）**：
   - **中文客户** → `references/zh-playbook.md`（中文信号 + S1–S16 中文话术 + 内贸特有风险与合规）
   - **外语客户** → `references/framework.md`（四必答题判据 / 承诺阶梯 / 信任度 0–5 / P1–P2–P3 分档）
-- **破例条款**：中文客户若同时需要四必答题判据与信任度刻度，**可读满 3 个**（计入全程额度）——
-  但**必须在输出里写明**「多读了 framework.md，因为要定信任度刻度/分档」，不得静默超支。
+- **破例条款**：中文客户若同时需要四必答题判据与信任度刻度，可**再读 `framework.md`**（判定层满 3 个）——
+  但**必须有代价**：**推进层额度归零**，话术只能从已读的 `zh-playbook.md` S1–S16 里取（它本身就含中文话术）。
+  并在输出里写明「多读了 framework.md，因为要定信任度刻度/分档」。
+
+**混合型文件怎么算（`zh-playbook.md` 同时含"信号"与"话术"）**
+- **读文件**是一件事（计入判定层额度）；**用其中哪部分**是另一件事。
+- `zh-playbook.md` 的**中文信号部分**属于判定层，Step 1–2 可用；
+- 它的 **S1–S16 话术部分属于推进层**，**Step 2 判定完成前不得取用**。
+- 这条规则对 `domestic-corpus.md` / `bili-corpus-2026-10.md` 等同样适用：**允许先读，禁止先用。**
 
 **"怎么推进 / 怎么说话"**（Step 2 判定之后才选；每组只挑 1 个）
+
+**⚠️ 多行同时命中时按此优先级取"唯一入口"（先看左边一列，从上往下第一命中即为答案）**
 
 | 用户问的是 | 唯一入口 | 备选（前者不够时） |
 |---|---|---|
 | 客户嫌贵 / 议价 | `references/phrasebank-price.md`（嫌贵四岔口诊断 / **4 类**价格异议应答 / 让步六铁律 / 守价五替身 / 三档报价法） | `references/negotiation.md`（让步阶梯、锚定与反锚定、BATNA、Dawson 三段） |
-| **他要下单了但还在犹豫 / 要"这一句怎么说"** | `references/phrasebank-bidan.md`（**30 句转译公式**：客户说X→你回Y / 价值重塑 5 句 / ❌新手vs✅销冠 8 场景 / 逼单四种力度 / 收口前三问） | `references/objections.md` |
-| **报价后没下文 / 跟进怎么写** | `references/phrasebank-followup.md`（破冰三句话 / 分类跟进 / 跟进记录法 / **专属信息公式** / 每次一个小目标 / 长期培育） | `references/templates.md`（D0→D21 模板） |
+| **他要下单了但还在犹豫 / 要"这一句怎么说"** | `references/phrasebank-bidan.md`（**10 句转译公式**：客户说X→你回Y（原帖称30句，文字仅10句） / 价值重塑 5 句 / ❌新手vs✅销冠 8 场景 / 逼单四种力度 / 收口前三问） | `references/objections.md` |
+| **报价后没下文 / 跟进怎么写** | `references/phrasebank-followup.md`（破冰三句话 / 分类跟进 / 跟进记录法 / **专属信息公式** / 每次一个小目标 / 长期培育） | `references/templates.md`（D0→D21 模板） <br>**仲裁**：若他**根本没有明确表态**（只是不回）→ 本行；若他**说了"再考虑/再看看"然后不回** → 用 `phrasebank-closing.md` §4 先破根因 |
 | 客户说"再考虑一下" | `references/phrasebank-closing.md` §4（破"再考虑"六种真身 + 三个根因 + 追问链） | `references/phrasebank-bidan.md` §1 |
-| 客户已读不回 / 沉默 | **中文** → `references/zh-playbook.md#S3`；**英文** → `references/playbook.md#S3` | `references/phrasebank-followup.md` §1（破冰三句） |
+| 客户已读不回 / 沉默 | **中文** → `references/zh-playbook.md#S3`；**英文** → `references/playbook.md#S3` | `references/phrasebank-followup.md` §1（破冰三句） <br>**仲裁**：**报价前**的已读不回 → 本行（zh-playbook S3）；**报价后**的沉默 → `phrasebank-followup.md` §1 |
 | 要引导下单 / 催单 | `references/phrasebank-closing.md`（成交信号 10 条 / 收口七术 / 临门一脚 / 防反悔 / 复购转介绍） | `references/phrasebank-bidan.md` |
-| 要"能给客户直接发"的沟通原话 | `references/phrasebank-eq-cn.md`（破冰/赞美/共情/拒绝/道歉/化解尴尬/催回复/坏消息/求人/边界，11 类） | `references/eq-communication.md` |
+| 要"能给客户直接发"的沟通原话 | `references/phrasebank-eq-cn.md`（**11 类**：回应与倾听 / 开口破冰 / 赞美 / 共情 / 拒绝 / 道歉 / 化解尴尬 / 催回复 / 坏消息 / 求人 / 分寸边界） | `references/eq-communication.md` <br>**仲裁**：客户**情绪正常**、你只是要措辞 → 本行；客户**正在发火/要拒绝** → 下一行 `eq-communication.md` |
 | 客户情绪化 / 要拒绝 / 难缠 | `references/eq-communication.md`（20 条高情商句式 + 实证依据） | `references/phrasebank-eq-cn.md` |
 | **回扣 / 返点 / 私人账户 / 私下给好处** | `references/zh-playbook.md` **S16**（法律定性 + 微信留痕拒绝） | `references/domestic-corpus.md`（内贸合规） |
 | 要整封可直接抄的模板（邮件/微信/电话/会议/催单/延误 D0→D21） | `references/templates.md` | — |
@@ -350,4 +404,22 @@ agent_created: true
 
 ---
 
-**铁律**：**先判断，再说话。** 判断用 signals / framework；**在完成 Step 2 判定之后**，要"能直接发出去的原话"才看 phrasebank-eq-cn / phrasebank-price / phrasebank-closing 三份库，要原理与模型看 eq-communication / negotiation / objections。客户语言非中英时优先读 i18n-phrases。
+**铁律**：**先判断，再说话。**
+
+- **判断层**用 `signals`（+ 中文客户读 `zh-playbook` 的**信号部分**／外语客户读 `framework`）。
+  **Step 2 判定完成之前，不得取用任何话术部分**（混合型文件的"读/用分离"见上文）。
+- **判定之后**，要"能直接发出去的原话"才看 **五份原话术库**：
+  | 场景 | 库 |
+  |---|---|
+  | 沟通情境措辞（破冰/赞美/共情/拒绝/道歉/化解尴尬） | `phrasebank-eq-cn` |
+  | 嫌贵 · 议价 | `phrasebank-price` |
+  | 拖延 · 节奏 · 破"再考虑" | `phrasebank-closing` |
+  | **临门一句 · 转译公式** | `phrasebank-bidan` |
+  | **报价后破冰 · 跟进写法** | `phrasebank-followup` |
+- 要**原理与模型**看 `eq-communication` / `negotiation` / `objections` / `sales-methods` / `channel-sales`。
+- 客户语言非中英时优先读 `i18n-phrases`。
+- **全程读取 ≤ 3 个文件（硬上限）**，结算方式见上文「额度如何结算」。
+
+> **为什么这段要改**：早先这里只列了 eq-cn / price / closing **三份**，
+> 而后加的 `bidan`（临门一句）与 `followup`（报价后沉默）**才是新场景最直接的答案**。
+> 只列三份会让 AI 在新场景下找不到入口——这与路由表和 description 声称的"5 份原话术库"自相矛盾。
