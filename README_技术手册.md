@@ -30,11 +30,21 @@
 
 ## 〇之二、发布流水线与验证工具(本轮新增)
 
-| 工具 | 路径 | 作用 |
-|---|---|---|
-| 发布流水线 | `trade-chat-coach-workspace\release_pipeline_v2.py` | 版本递增 → 两手册同步 → 构建 stage → **官方校验** → 打包 .skill/zip → CHANGELOG → 同步仓库 → git push → **建 Release + 上传资产** |
-| 全量清单校验器 | `trade-chat-coach-workspace\validate_skill_full.py` | **39 项断言**(结构/引用/Evals/编码/一致性/发布就绪),非零退出码即失败 |
-| 官方校验器 | `skill-creator\scripts\quick_validate.py` | 上游 frontmatter 契约校验(白名单键 + 描述长度) |
+**验证分四层，逐层加压**（前三层查"制品对不对"，第四层查"说明书能不能被执行"）：
+
+| 层 | 工具 | 路径 | 查什么 |
+|---|---|---|---|
+| 1 结构 | 全量清单校验器 | `trade-chat-coach-workspace\validate_skill_full.py` | **39 项断言**（结构/引用/Evals/编码/一致性/发布就绪），非零退出即失败 |
+| 2 上游契约 | 官方校验器 | `skill-creator\scripts\quick_validate.py` | frontmatter 白名单键 + 描述长度（**必须 `PYTHONUTF8=1`**） |
+| 3 产物 | 产物校验脚本 | `trade-chat-coach-workspace\verify_artifact.py` | .skill 顶层唯一 / refs 数==源 / 无 evals / 无反斜杠 / CRC / frontmatter 仅 name+description |
+| 4 **行为** | **端到端冒烟** | `trade-chat-coach-workspace\smoke_e2e.py` | **46 项**：20 个引用可解析、章节锚点（`#S3`/`§4`/`第6节`）真存在、9 类高频提问一步定位、术语有定义、红线成章 |
+| 编排 | 发布流水线 | `trade-chat-coach-workspace\release_pipeline_v2.py` | 版本递增 → 两手册同步 → 构建 stage → **官方校验** → 打包 .skill/zip → CHANGELOG → 同步仓库 → git push → **建 Release + 上传资产**（含快照回滚） |
+
+> **第 4 层的价值**：前三层全绿只说明"文件都在、格式都对"，**不能说明 AI 拿到它会不会用**。
+> 冒烟测试按 SKILL.md 路由表**模拟 AI 消费**——把路由表的每一行当断言来跑，
+> 于是"路由指向不存在的章节""某类提问没有入口"这类问题会在发布前暴露。
+> 写这个测试时它自己也出过 2 个假阳性（表格正则被行内 `**` 截断、红线检测词写死为"不得"而正文用的是"禁止"）——
+> **测试也需要被审查**，我们按实际原文修正了测试而非改技能。
 
 用法:
 ```
