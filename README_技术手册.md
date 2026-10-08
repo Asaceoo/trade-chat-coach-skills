@@ -33,7 +33,7 @@
 | 工具 | 路径 | 作用 |
 |---|---|---|
 | 发布流水线 | `trade-chat-coach-workspace\release_pipeline_v2.py` | 版本递增 → 两手册同步 → 构建 stage → **官方校验** → 打包 .skill/zip → CHANGELOG → 同步仓库 → git push → **建 Release + 上传资产** |
-| 全量清单校验器 | `trade-chat-coach-workspace\validate_skill_full.py` | 36 项断言(结构/引用/Evals/编码/一致性/发布就绪),非零退出码即失败 |
+| 全量清单校验器 | `trade-chat-coach-workspace\validate_skill_full.py` | **39 项断言**(结构/引用/Evals/编码/一致性/发布就绪),非零退出码即失败 |
 | 官方校验器 | `skill-creator\scripts\quick_validate.py` | 上游 frontmatter 契约校验(白名单键 + 描述长度) |
 
 用法:
@@ -144,7 +144,20 @@ python release_pipeline_v2.py --minor --message "…"  # 正式发布
 - **因此打包前必须剥离这 5 个键**，剥离后官方校验返回 `Skill is valid!`（已实测）
 - 打包器 `package_skill.py` 的 `ROOT_EXCLUDE_DIRS = {"evals"}`：**`.skill` 产物不含 evals**，这是设计如此；评测资产只随源码仓库与 zip 分发
 
-### 7.3 清单兜底校验（36 项）
+### 7.3 清单兜底校验（39 项）
 
-分 6 个维度：结构(6) / 引用完整性(6) / Evals 资产(5) / 编码格式(6) / 内容一致性(8) / 发布就绪(5)。
+分 6 个维度：结构(6) / 引用完整性(6) / Evals 资产(6) / 编码格式(6) / 内容一致性(10) / 发布就绪(7)。
 发布流水线第 0 步强制跑它，**非零退出即中止发布**，杜绝"坏包上线"。
+
+> 校验器自身也曾犯错：初版 F1 要求 top-level 存在 `display_name/version/agent_created`——**恰是上游打包器拒绝的键**，等于"本地全绿保证上游必挂"；F5 则 `return True` 恒真。已重写为**真实打包契约验证**（剥离 5 键 → 跑上游 `validate_skill`）与带豁免清单的真检查。
+
+### 7.4 首次真机发布暴露的 2 个流水线缺陷（已修，v2.8.0 发布时实测）
+
+真实跑一次发布，抓到两个**只有实跑才会暴露**的 bug：
+
+| # | 现象 | 根因 | 修复 |
+|---|---|---|---|
+| 1 | 两份中文名资产传上 Release 后变成 `-v2.8.md`；第二个直接 HTTP 422 `already_exists` | **GitHub 的 `uploads.github.com` 会静默丢弃 `name` 参数里的非 ASCII 字符**。探针实测：发 `?name=%E4%B8%AD%E6%96%87%E5%90%8D%E6%B5%8B%E8%AF%95-probe.md`，服务端只存成 `-probe.md`；于是「用户手册-v2.8.md」与「技术手册-v2.8.md」削名后**同名** → 重名冲突 | 资产名改**纯 ASCII**（`user-manual-v2.8.md` / `tech-manual-v2.8.md`），并在流水线加 `name.isascii()` 守卫，非 ASCII 直接中止。手册**内容**仍是中文 |
+| 2 | 资产上传失败后，**已推送成功的本地版本号被回滚**成旧值，出现"远端 2.8.0 / 本地 2.7.0"不一致 | 为防"改一半失败"加了发布前快照 + 失败自动回滚，但**回滚没区分"远端是否已固化"**——`git push` 已成功时远端已是新版本，此时回滚本地即制造不一致 | 在 `git push` 成功后**立即清除回滚快照**：一旦推送成功即视为已固化，后续步骤失败只报错、不再回滚本地 |
+
+> **教训**：回滚的边界是**最后一道不可逆动作**（push / 发布），不是"整个流程的结束"。跨过不可逆点之后，本地要向已固化的远端对齐，而不是把本地拖回去。
