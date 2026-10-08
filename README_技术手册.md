@@ -192,6 +192,38 @@ python release_pipeline_v2.py --patch --message "..."
 > **安全提醒**：PAT 一旦出现在聊天记录、日志或版本库里，即视为**已泄露**，应立即到 GitHub Settings → Developer settings → Fine-grained tokens 吊销并重发。
 > 本流水线不会把 token 写入任何文件；排查时也用 `长度` / `是否非空` 断言，而不打印明文。
 
+**① 根因侧根治：清理重复账号（已执行，2026-10-09）**
+
+代码加固只是"绕过"，真正让弹窗消失的是**消除账号歧义**。本机 Windows 凭据管理器原有 3 条 `x-access-token` 记录：
+
+| Target | User | 处置 |
+|---|---|---|
+| `git:https://github.com` | x-access-token | 🗑 删除 |
+| `git:https://x-access-token@github.com:443` | x-access-token | 🗑 删除 |
+| `git:https://x-access-token@github.com` | x-access-token | 🗑 删除 |
+| `git:https://Asaceoo@github.com` | Asaceoo | ✅ 保留 |
+| `gh:github.com:Asaceoo` | Asaceoo | ✅ 保留 |
+
+```powershell
+# 查看（不显示密码）
+cmdkey /list | Select-String "github" -Context 0,2
+# 删除（只需 target 去前缀）
+cmdkey /delete:"git:https://x-access-token@github.com"
+```
+
+**效果对比（同一台机器实测）**：
+
+| 时点 | 环境配置 | `git credential fill` 耗时 |
+|---|---|---|
+| 删除前 | 仅 `GIT_TERMINAL_PROMPT=0` | **9.4 s**（卡在等弹窗） |
+| 删除前 | + `GCM_INTERACTIVE=never` | 0.6 s（靠开关绕过） |
+| **删除后** | **仅 `GIT_TERMINAL_PROMPT=0`（旧配置）** | **0.5 s** ✅ |
+
+删除后 `git credential fill` 返回 `username=Asaceoo`，`git fetch` 1.7 s 正常。
+**结论：消歧（清重复账号）+ 代码加固（GCM_INTERACTIVE=never）双保险**；只做代码加固也能用，但"根因不除、偶发仍会慢"。
+
+**② 备份与取证**：删除前用 `cmdkey /list > credman_backup_<ts>.txt` 留档（**只含 target/user/type，不含密码明文**）。
+
 ### 7.6 版本历史（发布记录）
 
 | 版本 | 交付 |
