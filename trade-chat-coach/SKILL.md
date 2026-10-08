@@ -2,9 +2,9 @@
 name: trade-chat-coach
 display_name: "客户聊天教练（内贸优先）"
 display_name_en: "Foreign Trade Chat Coach"
-description: "从客户聊天截图/记录里读出真实意图，并给出能推进到下单的下一步动作与原话术。国内销售优先、外贸同样适用：当用户上传 微信 / QQ / WhatsApp / 邮件 / 阿里国际站 / Telegram 等客户聊天截图或粘贴对话文本（客户说中文、英文、俄语、西语、阿语等都可以），或问『这个客户是不是真的要买』『客户已读不回怎么办』『他嫌价格高怎么回』『这个询盘是不是骗子』『怎么催单』『怎么催款』『怎么谈判让价』『客户有异议怎么处理』『客户要回扣／返点怎么办』『他要打私人账户怎么办』，涉及 陌拜、电话销售、客户拜访、招投标、渠道、会销、内贸大客户 等国内销售场景，或说『这几个客户一起看看』『正在聊快帮我回』（批量台账模式 / 实时模式）时使用。核心流程：重建对话事实 → 四必答题（最终目的 / 何时要什么 / 何时付款 / 信任度）→ 判定真买·比价·探路·风险 → 输出诊断卡、三个必问问题、可直接发送的回复草稿与跟进节奏。内置 20 个话术与方法论库（含 3 份可直接抄的原话术库：phrasebank-eq-cn 沟通情境 / phrasebank-price 议价 / phrasebank-closing 引导下单）。分析固定用中文，回复草稿跟随客户语言。凡是涉及客户跟进、报价前判断、砍价谈判、催单、催款、客户分层、异议处理、陌拜、拜访、招投标，即使没提到『技能』也要用。"
+description: "从客户聊天截图/记录里读出真实意图，并给出能推进到下单的下一步动作与原话术。国内销售优先、外贸同样适用：当用户上传 微信 / QQ / WhatsApp / 邮件 / 阿里国际站 / Telegram 等客户聊天截图或粘贴对话文本（客户说中文、英文、俄语、西语、阿语等都可以），或问『这个客户是不是真的要买』『客户已读不回怎么办』『他嫌价格高怎么回』『这个询盘是不是骗子』『怎么催单』『怎么催款』『怎么谈判让价』『客户有异议怎么处理』『客户要回扣／返点怎么办』『他要打私人账户怎么办』，涉及 陌拜、电话销售、客户拜访、招投标、渠道、会销、内贸大客户 等国内销售场景，或说『这几个客户一起看看』『正在聊快帮我回』（批量台账模式 / 实时模式）时使用。核心流程：重建对话事实 → 四必答题（最终目的 / 何时要什么 / 何时付款 / 信任度）→ 判定真买·比价·探路·风险 → 输出诊断卡、三个必问问题、可直接发送的回复草稿与跟进节奏。内置 23 个话术与方法论库（含 5 份可直接抄的原话术库：phrasebank-eq-cn 沟通情境 / phrasebank-price 议价 / phrasebank-closing 引导下单 / phrasebank-bidan 逼单成交转译公式 / phrasebank-followup 跟进破冰；另有 channel-sales 渠道销售）。分析固定用中文，回复草稿跟随客户语言。凡是涉及客户跟进、报价前判断、砍价谈判、催单、催款、客户分层、异议处理、陌拜、拜访、招投标、渠道，即使没提到『技能』也要用。"
 description_en: "Diagnose a buyer's real intent from chat screenshots or transcripts, then give the next move and ready-to-send replies. Domestic Chinese B2B sales first; export sales supported. Use when the user uploads WeChat / QQ / WhatsApp / email / Alibaba / Telegram chat screenshots or pastes a conversation, or asks whether a buyer is genuine, why a buyer went silent, how to answer 'your price is too high', whether an inquiry is a scam, how to follow up, collect payment, handle objections, or close the deal — including cold visits, phone sales, tenders, channels, and enterprise sales. Workflow: rebuild the facts, answer the four mandatory questions (end purpose / timing & specs / payment / trust), classify the buyer as genuine / price collector / explorer / risk, then output a diagnosis card, three must-ask questions, drafts in the customer's language, and a follow-up cadence. Analysis in Chinese; drafts follow the customer's language."
-version: "2.8.3"
+version: "2.9.0"
 agent_created: true
 ---
 
@@ -318,14 +318,17 @@ agent_created: true
 | 用户问的是 | 唯一入口 | 备选（前者不够时） |
 |---|---|---|
 | 客户嫌贵 / 议价 | `references/phrasebank-price.md`（嫌贵四岔口诊断 / **4 类**价格异议应答 / 让步六铁律 / 守价五替身 / 三档报价法） | `references/negotiation.md`（让步阶梯、锚定与反锚定、BATNA、Dawson 三段） |
-| 客户说"再考虑一下" | `references/phrasebank-closing.md` §4（破"再考虑"六种真身） | `references/objections.md`（时机类异议） |
-| 客户已读不回 / 沉默 | **中文** → `references/zh-playbook.md#S3`；**英文** → `references/playbook.md#S3` | `references/phrasebank-closing.md`（催单节奏） |
-| 要引导下单 / 催单 | `references/phrasebank-closing.md`（成交信号 10 条 / 收口七术 / 临门一脚 / 防反悔 / 复购转介绍） | `references/objections.md` §4–5 |
+| **他要下单了但还在犹豫 / 要"这一句怎么说"** | `references/phrasebank-bidan.md`（**30 句转译公式**：客户说X→你回Y / 价值重塑 5 句 / ❌新手vs✅销冠 8 场景 / 逼单四种力度 / 收口前三问） | `references/objections.md` |
+| **报价后没下文 / 跟进怎么写** | `references/phrasebank-followup.md`（破冰三句话 / 分类跟进 / 跟进记录法 / **专属信息公式** / 每次一个小目标 / 长期培育） | `references/templates.md`（D0→D21 模板） |
+| 客户说"再考虑一下" | `references/phrasebank-closing.md` §4（破"再考虑"六种真身 + 三个根因 + 追问链） | `references/phrasebank-bidan.md` §1 |
+| 客户已读不回 / 沉默 | **中文** → `references/zh-playbook.md#S3`；**英文** → `references/playbook.md#S3` | `references/phrasebank-followup.md` §1（破冰三句） |
+| 要引导下单 / 催单 | `references/phrasebank-closing.md`（成交信号 10 条 / 收口七术 / 临门一脚 / 防反悔 / 复购转介绍） | `references/phrasebank-bidan.md` |
 | 要"能给客户直接发"的沟通原话 | `references/phrasebank-eq-cn.md`（破冰/赞美/共情/拒绝/道歉/化解尴尬/催回复/坏消息/求人/边界，11 类） | `references/eq-communication.md` |
 | 客户情绪化 / 要拒绝 / 难缠 | `references/eq-communication.md`（20 条高情商句式 + 实证依据） | `references/phrasebank-eq-cn.md` |
 | **回扣 / 返点 / 私人账户 / 私下给好处** | `references/zh-playbook.md` **S16**（法律定性 + 微信留痕拒绝） | `references/domestic-corpus.md`（内贸合规） |
 | 要整封可直接抄的模板（邮件/微信/电话/会议/催单/延误 D0→D21） | `references/templates.md` | — |
 | 要选系统打法（SPIN/挑战者/顾问式/大客户/MEDDIC/铁军/LTC/GROW/RAIN） | `references/sales-methods.md` | — |
+| **做渠道（代理/经销/分销）：布局、管理、培养、判断自己做好没有** | `references/channel-sales.md`（渠道三类与谈法差异 / 四类市场布局法 / 五个关键点与优先级 / 渠道话术 / 5 问自检） | `references/domestic-corpus.md` |
 | 检查手法是否越界 / 要心理学依据 | `references/influence.md` | `references/sources.md` |
 | 陌拜 / 拜访 / 招投标 / 催款 / 渠道 / 会销 / 电话 | `references/domestic-corpus.md`（26 节 / 447 行内贸语料；**注：单文件体量最大，只取所需小节**） | `references/bili-corpus-2026-10.md` §2（陌拜案例逐句拆解） |
 | 俄 / 西 / 阿 / 法 / 德 / 葡 语言 | `references/i18n-phrases.md`（六语言短句 + 文化雷区） | — |

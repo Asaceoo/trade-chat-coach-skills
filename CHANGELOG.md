@@ -2,6 +2,11 @@
 
 所有重要变更记录于此。格式参考 [Keep a Changelog](https://keepachangelog.com/)。
 
+## [2.9.0] - 2026-10-09
+
+### 新增
+v2.9.0: 语料归纳扩充 — 新增3个话术库(phrasebank-bidan逼单成交30句转译公式 / phrasebank-followup跟进破冰 / channel-sales渠道销售) + phrasebank-eq-cn增补分寸感四边界/七条沟通技术/接话四句(源自8.3万赞与4.1万赞长文)
+
 ## [2.8.3] - 2026-10-09
 
 ### 新增
