@@ -163,6 +163,24 @@
 **中文微信版**
 > [称呼]，[真实原因：排产位/材料价/运费]到 [日期]。您在 [日期] 前确认，我按现在的价格和交期给您留位。需要再想想也直说，我按您的节奏来。
 
+### 10.1 四场景"合作收尾"话术（第四轮小红书 2463 赞笔记，`research\dangdang_booklist_20261008.md` 同期采集）
+
+核心立场：**好好说话 ≠ 卑微讨好**——同一件事，别用"卑微提醒版"，用"合作收尾版"。
+
+**① 催付款**｜别：`Kindly reminder: payment is due...`（卑微催）
+> Hope you're doing well! I'm circling back on invoice [No.] for [amount], due [date] per our terms. Could you confirm the expected payment date? Happy to resend anything you need.
+
+**② 处理客诉**｜别：敷衍甩锅
+> Thanks for sharing this — sorry we missed the mark. I've looped in the team and we're prioritizing this. I'll update you within [timeframe] with a fix.
+
+**③ 推产品**｜别：硬广直推
+> Noticed [your progress], reminded me how [our product] helped [similar client] get [result]. Fits your work — happy to share a case study!
+
+**④ 答质疑**｜别：空口保证
+> Fair question. Other clients saw [example/data] with this. Happy to connect you with our specialist if you'd like.
+
+**红线**：③④ 中的案例与数据必须真实可查；来源笔记末尾为第三方工具软文，本技能不背书任何"背调神器"。
+
 ---
 
 ## 11 交期延误通知（高情商场景，越早越好）

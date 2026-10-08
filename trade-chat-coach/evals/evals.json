@@ -1,20 +1,77 @@
 {
   "skill_name": "trade-chat-coach",
-  "note": "评测执行档案（2026-10-07 更新）。完整输出见 D:\\deepseek\\trade-chat-coach-workspace\\iteration-{1..7}\\。合成夹具在 fixtures/（含中英俄三语）。",
+  "note": "评测执行档案（2026-10-09 更新）。完整输出见技能工作区的 iteration-1..9/。夹具见 evals/fixtures/。",
+  "schema_note": "files 为技能标准字段（路径相对技能根目录，供 eval runner 读取）；fixture/fixtures 为历史兼容字段，保留但以下游以 files 为准。expectations 为评分断言，verification 标明该结论是机器可复核还是自述。",
   "evals": [
-    {"id": 0, "name": "en-price-collector", "prompt": "客户发来聊天截图只问价+嫌贵，是真的想买吗？", "fixture": "case1_price_collector.png", "status": "passed", "variant_compare": "with_skill vs without_skill"},
-    {"id": 1, "name": "en-genuine-buyer", "prompt": "荷兰客户两封邮件，靠谱吗？下一步做什么？", "fixture": "case2_genuine_buyer_p1/p2.png", "status": "passed", "variant_compare": "with_skill vs without_skill"},
-    {"id": 2, "name": "en-high-risk", "prompt": "客户订5个柜还要邀请函，有没有问题？", "fixture": "case3_high_risk.png", "status": "passed", "variant_compare": "with_skill vs without_skill"},
-    {"id": 3, "name": "zh-price-collector", "prompt": "微信客户只问价还说别家便宜一半，真要买吗？", "fixture": "case4_zh_price_collector.png", "status": "passed", "variant_compare": "with_skill vs without_skill_clean"},
-    {"id": 4, "name": "zh-domestic-risk", "prompt": "政府项目+要方案+保证金打个人账户+回扣，有没有问题？", "fixture": "case5_zh_domestic_risk.png", "status": "passed", "variant_compare": "with_skill vs without_skill_clean"},
-    {"id": 5, "name": "ru-i18n", "prompt": "俄罗斯客户俄语只谈价格，判定+回复？", "fixture": "case6_ru_price_collector.png", "status": "passed", "check": "草稿语言=俄语；i18n 路由"},
-    {"id": 6, "name": "mixed-language", "prompt": "迪拜客户中英混说、信息碎，判定+回复语言？", "fixture": "text-inline", "status": "passed", "check": "草稿=英文为主（客户商业信息语言）"},
-    {"id": 7, "name": "live-mode", "prompt": "正在聊：第一次报价4.5被砍到4.0，威胁找别人，快帮我回", "fixture": "text-inline", "status": "passed", "check": "模式C：2-3条可发回复，无长篇"},
-    {"id": 8, "name": "batch-mode", "prompt": "帮我看看这几个客户哪些值得跟（3客户）", "fixture": "text-inline", "status": "passed", "check": "模式B：4行压缩卡+优先级总表，无长篇"},
-    {"id": 9, "name": "regression-v2", "prompt": "回归：v2.0 路由表是否破坏流程", "fixture": "case1_price_collector.png", "status": "passed", "check": "路由表正确读取"}
+    {"id": 0, "name": "en-price-collector", "prompt": "客户发来聊天截图只问价+嫌贵，是真的想买吗？",
+     "files": ["evals/fixtures/case1_price_collector.png"], "fixture": "case1_price_collector.png",
+     "status": "passed", "verification": "self-reported",
+     "variant_compare": "with_skill vs without_skill",
+     "expectations": ["判定为比价类或明确指出不是真买家、优先级低", "引用客户原话作为证据", "四必答题逐条覆盖", "指出报价前必须补齐的信息", "给出可直接复制发送的英文回复草稿", "没有建议直接给最低价或主动降价", "给出跟进节奏或降级/放弃条件"]},
+
+    {"id": 1, "name": "en-genuine-buyer", "prompt": "荷兰客户两封邮件，靠谱吗？下一步做什么？",
+     "files": ["evals/fixtures/case2_genuine_buyer_p1.png", "evals/fixtures/case2_genuine_buyer_p2.png"],
+     "fixture": "case2_genuine_buyer_p1.png", "fixtures": ["case2_genuine_buyer_p1.png", "case2_genuine_buyer_p2.png"],
+     "status": "passed", "verification": "self-reported",
+     "variant_compare": "with_skill vs without_skill",
+     "expectations": ["判定为真买并给置信度", "按时间顺序重建两封邮件的事实", "四必答题逐条覆盖", "给出下一步唯一动作", "草稿用英文且可直接复制"]},
+
+    {"id": 2, "name": "en-high-risk", "prompt": "客户订5个柜还要邀请函，有没有问题？",
+     "files": ["evals/fixtures/case3_high_risk.png"], "fixture": "case3_high_risk.png",
+     "status": "passed", "verification": "self-reported",
+     "variant_compare": "with_skill vs without_skill",
+     "expectations": ["判定为风险并说明风险点", "给出验证动作（不直接答应）", "不承诺函件或垫资", "给出降级/停止条件"]},
+
+    {"id": 3, "name": "zh-price-collector", "prompt": "微信客户只问价还说别家便宜一半，真要买吗？",
+     "files": ["evals/fixtures/case4_zh_price_collector.png"], "fixture": "case4_zh_price_collector.png",
+     "status": "passed", "verification": "self-reported",
+     "variant_compare": "with_skill vs without_skill_clean",
+     "expectations": ["判定为比价类", "引用中文原话作为证据", "给出中文回复草稿（跟随客户语言）", "没有建议直接降价"]},
+
+    {"id": 4, "name": "zh-domestic-risk", "prompt": "政府项目+要方案+保证金打个人账户+回扣，有没有问题？",
+     "files": ["evals/fixtures/case5_zh_domestic_risk.png"], "fixture": "case5_zh_domestic_risk.png",
+     "status": "passed", "verification": "self-reported",
+     "variant_compare": "with_skill vs without_skill_clean",
+     "expectations": ["判定为高风险", "明确指出保证金打个人账户与回扣的法律风险", "给出留痕拒绝的合规话术", "不提供任何行贿或规避合规的做法"]},
+
+    {"id": 5, "name": "ru-i18n", "prompt": "俄罗斯客户俄语只谈价格，判定+回复？",
+     "files": ["evals/fixtures/case6_ru_price_collector.png"], "fixture": "case6_ru_price_collector.png",
+     "status": "passed", "verification": "self-reported",
+     "check": "草稿语言=俄语；i18n 路由",
+     "expectations": ["草稿用俄语（跟随客户语言）", "分析用中文", "命中 i18n 路由"]},
+
+    {"id": 6, "name": "mixed-language", "prompt": "迪拜客户中英混说、信息碎，判定+回复语言？",
+     "files": [], "fixture": "text-inline", "input_text": "迪拜客户中英混说、信息碎（原始输入见工作区 iteration-5）",
+     "status": "passed", "verification": "self-reported",
+     "expectations": ["判定+置信度", "草稿以英文为主（客户商业信息语言）", "分析用中文"]},
+
+    {"id": 7, "name": "live-mode", "prompt": "正在聊：第一次报价4.5被砍到4.0，威胁找别人，快帮我回",
+     "files": [], "fixture": "text-inline", "input_text": "第一次报价4.5被砍到4.0，客户威胁找别人，要求立刻回复",
+     "status": "passed", "verification": "self-reported",
+     "expectations": ["模式C：只输出2-3条可直接发送的回复", "不输出完整诊断卡", "每条附一行用意"]},
+
+    {"id": 8, "name": "batch-mode", "prompt": "帮我看看这几个客户哪些值得跟（3客户）",
+     "files": [], "fixture": "text-inline", "input_text": "3 个客户的混合信息（原始输入见工作区 iteration-7）",
+     "status": "passed", "verification": "self-reported",
+     "expectations": ["模式B：每客户4行压缩卡", "输出优先级总表（P1/P2/P3/🚩）", "给出本周时间上限", "不给每个客户写长文"]},
+
+    {"id": 9, "name": "regression-v2", "prompt": "回归：v2.0 路由表是否破坏流程",
+     "files": ["evals/fixtures/case1_price_collector.png"], "fixture": "case1_price_collector.png",
+     "status": "passed", "verification": "self-reported",
+     "check": "路由表正确读取",
+     "expectations": ["命中正确的 reference 文件", "输出结构仍为 8 节（模式A）"]},
+
+    {"id": 10, "name": "blind-test-round10", "prompt": "第10轮独立AI盲测：新入库话术10条（GROW/RAIN/Dawson三段/100句OCR零售话术/失去框架/假设确认/外贸催付款）",
+     "files": ["evals/fixtures/case7_blind_test.png"], "fixture": "case7_blind_test.png",
+     "status": "reported-partial", "verification": "self-reported",
+     "result": "9/10 pass；T6（同质量肯定最低价）判 fail，R4 已改写为比价邀请；T8（失去框架法）判准，R3 整组替换为价值钩子+体面退路；T4（收回报价）补使用前提；机制落地：SKILL.md 增加谈判/催单话术输出前的前提真实性校验",
+     "score": {"D1": 3.3, "D2": 4.4, "D3": 3.1, "D4": 3.4},
+     "expectations": ["10 条话术逐条给出通过/不通过判定", "不通过项给出改写后的版本", "不得声称满分（自评 D1/D3 低于 4）"]}
   ],
   "known_limitations": [
-    "当前会话模型不支持图像输入，读图类用例由代理从生成脚本恢复原文（技能已内置读图失败兜底）",
+    "status 为自述结论（verification=self-reported）；expectations 已补齐，runner 机检链路待接入",
+    "text-inline 类用例的完整原始输入未内联，需从技能工作区 iteration-N/ 取回",
+    "当前会话模型若不支持图像输入，读图类用例由代理从生成脚本恢复原文（技能已内置读图失败兜底）",
     "真实客户语料未取得（需用户提供截图/文本或平台凭证）"
   ]
 }

@@ -16,7 +16,7 @@
 |---|---|---|
 | 开场 | Здравствуйте! Спасибо за ваш запрос. | 您好！感谢您的询盘。 |
 | 问信息 | Пожалуйста, уточните количество и спецификацию. | 请确认数量和规格。 |
-| 报价 | Наш предварительный ценовой диапазон для [产品] — [X–Y]. | 我们的参考价区间是 [X–Y]。 |
+| 报价 | Наш предварительный ценовой диапазон для [product] — [X–Y]. | 我们的参考价区间是 [X–Y]。 |
 | 附 PI | Во вложении наш счёт-предложение (PI). | 附件是我们的形式发票（PI）。 |
 | 交期 | Срок производства — [X] дней после получения аванса. | 收到定金后 [X] 天生产。 |
 | 催单 | Напомню: предложение действительно до [дата]. | 提醒：报价有效期到 [日期]。 |
@@ -40,6 +40,7 @@
 | 问信息 | هل يمكنكم تأكيد الكمية والمواصفات؟ | 您能确认数量和规格吗？ |
 | 报价 | سعرنا التقريبي هو [X–Y] حسب الكمية. | 我们的参考价是 [X–Y]，视数量而定。 |
 | 附 PI | المرفق: الفاتورة المؤقتة (PI). | 附件：形式发票（PI）。 |
+| 交期 | مدة الإنتاج [X] يوماً بعد استلام الدفعة المقدمة. | 收到定金后 [X] 天生产。 |
 | 催单 | العرض ساري حتى [التاريخ]. | 报价有效期到 [日期]。 |
 | 收尾 | بانتظار ردكم الكريم. | 期待您的回复。 |
 
@@ -50,6 +51,7 @@
 | 问信息 | Pourriez-vous confirmer la quantité et les spécifications ? | 您能确认数量和规格吗？ |
 | 报价 | Notre fourchette de prix est [X–Y] selon la quantité. | 我们的价格区间是 [X–Y]，视数量而定。 |
 | 附 PI | Veuillez trouver ci-joint la facture pro forma. | 附件为形式发票。 |
+| 交期 | Le délai de production est de [X] jours après réception de l'acompte. | 收到定金后 [X] 天生产。 |
 | 催单 | L'offre est valable jusqu'au [date]. | 报价有效期到 [日期]。 |
 | 收尾 | Dans l'attente de votre réponse. | 期待您的回复。 |
 
@@ -60,16 +62,18 @@
 | 问信息 | Könnten Sie bitte Menge und Spezifikation bestätigen? | 您能确认数量和规格吗？ |
 | 报价 | Unser Preisbereich liegt bei [X–Y] je nach Menge. | 我们的价格区间是 [X–Y]，视数量而定。 |
 | 附 PI | Anbei die Proforma-Rechnung. | 附形式发票。 |
+| 交期 | Die Produktionszeit beträgt [X] Tage nach Erhalt der Anzahlung. | 收到定金后 [X] 天生产。 |
 | 催单 | Das Angebot gilt bis zum [Datum]. | 报价有效期到 [日期]。 |
 | 收尾 | Wir freuen uns auf Ihre Rückmeldung. | 期待您的回复。 |
 
 ### 葡萄牙语（PT-BR）— 巴西（拉美大市场）
 | 场景 | 葡萄牙语 | 中文 |
 |---|---|---|
-| 开场 | Olá, obrigado pelo seu contato. | 您好，感谢您的联系。 |
+| 开场 | Olá, obrigado/a pelo seu contato. | 您好，感谢您的联系。 |
 | 问信息 | Poderia confirmar a quantidade e as especificações? | 您能确认数量和规格吗？ |
 | 报价 | Nossa faixa de preço é [X–Y] conforme a quantidade. | 我们的价格区间是 [X–Y]，视数量而定。 |
 | 附 PI | Segue anexada a fatura proforma. | 附形式发票。 |
+| 交期 | O prazo de produção é de [X] dias após o recebimento da entrada. | 收到定金后 [X] 天生产。 |
 | 催单 | A oferta é válida até [data]. | 报价有效期到 [日期]。 |
 | 收尾 | Aguardamos sua resposta. | 期待您的回复。 |
 

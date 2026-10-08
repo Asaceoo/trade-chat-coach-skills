@@ -11,7 +11,7 @@
 
 ---
 
-## A 真买信号（Buyer）
+## 真买信号（Buyer）
 
 | 信号 | 客户原话示例 | 为什么算真信号 |
 |---|---|---|
@@ -26,14 +26,14 @@
 | 给数量区间，而不是只问 "best price" | "We'd need 1,500–2,000 pcs for the first year." | 有量的概念 = 有真实的采购计划 |
 | 嫌贵但继续谈条款 | "Price is high, but what about the lead time?" | 拒绝价格却留在桌上，说明他要的是解决方案 |
 
-## B 比价信号（Price collector）
+## 比价信号（Price collector）
 
 | 信号 | 客户原话示例 | 怎么处理 |
 |---|---|---|
 | 一上来只要 price list / catalog | "Please send your full price list." | 不直接发全表；发 1–2 个匹配型号 + 反问 3 项信息 |
 | 不给数量、规格、目的国 | （问了三次都答"just give me your price"） | 定性为比价，标准化回复一次 |
 | 群发口吻 | "Kindly send your best price for all products." | 大概率同时在发给十几家 |
-| 问完价格就消失，下次回来还是只问价 | 间隔长、每次只问价 | 归入 C 档，低频池 |
+| 问完价格就消失，下次回来还是只问价 | 间隔长、每次只问价 | 归入 P3 档（低频池） |
 | 拒绝透露用途 / 目的国 / 公司信息 | "That's not important, just the price." | 信息不对称的单向索取 |
 | 要 Excel 格式价目表 | "Send it in Excel so I can compare." | 直白地在做横向对比 |
 | 拿"别人给我 XX"但不谈规格差异 | "Another supplier gives me $8." | 别降价，问规格基准（见 playbook S1） |
@@ -41,7 +41,7 @@
 
 > 注意：比价 ≠ 无价值。比价者中有一部分是"还没被说服的真买家"。区别在于——**你愿不愿意用一次低成本的回复去测试他**。测试话术见 playbook S2。
 
-## C 探路信号（Explorer）
+## 探路信号（Explorer）
 
 | 信号 | 客户原话示例 | 含义 |
 |---|---|---|
@@ -53,7 +53,7 @@
 
 > 探路者要**长线养**：固定节奏、给行业信息、不投入定制化劳动。不要把探路者当真买家去追，那样两头都伤。
 
-## D ⚠️ 风险信号（Scam / 套资料）
+## 风险信号 🚩（Scam / 套资料）
 
 出现任意一条，就在输出里单独标红，并给出"验证动作"——不要直接下结论说对方是骗子（有误伤成本），但要让用户先验证再投入。
 
