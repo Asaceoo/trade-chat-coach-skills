@@ -1,0 +1,10 @@
+# 打包产物不进仓库：每个版本 +1MB，且发布后 GitHub Releases 已完整托管这三类资产。
+# 仓库只保留源码树与文档；需要 zip/.skill 请从 Releases 页下载。
+trade-chat-coach-skill-v*.zip
+*.skill
+
+# Python / 编辑器噪音
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
