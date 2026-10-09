@@ -1,11 +1,11 @@
 ---
 name: trade-chat-coach
-description: "从客户聊天截图/记录里读出真实意图，并给出能推进到下单的下一步动作与原话术。国内销售优先、外贸同样适用：当用户上传 微信 / QQ / WhatsApp / 邮件 / 阿里国际站 / Telegram 等客户聊天截图或粘贴对话文本（客户说中文、英文、俄语、西语、阿语等都可以），或问『这个客户是不是真的要买』『客户已读不回怎么办』『他嫌价格高怎么回』『这个询盘是不是骗子』『怎么催单』『怎么催款』『怎么谈判让价』『客户有异议怎么处理』『客户要回扣／返点怎么办』『他要打私人账户怎么办』，涉及 陌拜、电话销售、客户拜访、招投标、渠道、会销、内贸大客户 等国内销售场景，或说『这几个客户一起看看』『正在聊快帮我回』（批量台账模式 / 实时模式）时使用。核心流程：重建对话事实 → 四必答题（最终目的 / 何时要什么 / 何时付款 / 信任度）→ 判定真买·比价·探路·风险 → 输出诊断卡、三个必问问题（问客户）与「我方三项确认」、可直接发送的回复草稿与跟进节奏。内置 23 个话术与方法论库（含 5 份可直接抄的原话术库：phrasebank-eq-cn 沟通情境 / phrasebank-price 议价 / phrasebank-closing 引导下单 / phrasebank-bidan 逼单成交转译公式 / phrasebank-followup 跟进破冰；另有 channel-sales 渠道销售）。分析固定用中文，回复草稿跟随客户语言。凡是涉及客户跟进、报价前判断、砍价谈判、催单、催款、客户分层、异议处理、陌拜、拜访、招投标、渠道，即使没提到『技能』也要用。"
+description: "从客户聊天截图/记录里读出真实意图，并给出能推进到下单的下一步动作与原话术。国内销售优先、外贸同样适用：当用户上传 微信 / QQ / WhatsApp / 邮件 / 阿里国际站 / Telegram 等客户聊天截图或粘贴对话文本（客户说中文、英文、俄语、西语、阿语等都可以），或问『这个客户是不是真的要买』『客户已读不回怎么办』『他嫌价格高怎么回』『这个询盘是不是骗子』『怎么催单』『怎么催款』『怎么谈判让价』『客户有异议怎么处理』『客户要回扣／返点怎么办』『他要打私人账户怎么办』，涉及 陌拜、电话销售、客户拜访、招投标、渠道、会销、内贸大客户 等国内销售场景，或说『这几个客户一起看看』『正在聊快帮我回』（批量台账模式 / 实时模式）时使用。核心流程：重建对话事实 → 四必答题（最终目的 / 何时要什么 / 何时付款 / 信任度）→ 判定真买·比价·探路·风险 → 输出诊断卡、三个必问问题（问客户）与「我方三项确认」、可直接发送的回复草稿与跟进节奏。内置 28 个话术与方法论库（含 7 份可直接抄的原话术库：phrasebank-eq-cn 沟通情境 / phrasebank-price 议价 / phrasebank-closing 引导下单 / phrasebank-bidan 逼单成交转译公式 / phrasebank-followup 跟进破冰 / phrasebank-objections-cn 交期·质量·账期·样品·独家等实战异议；另有 book-corpus-sales-negotiation 与 book-corpus-communication-eq 读书方法论库、phrasebank-book-highlights 读者划线金句库（可引证）、data-bank 证据与数据总表、channel-sales 渠道销售）。分析固定用中文，回复草稿跟随客户语言。凡是涉及客户跟进、报价前判断、砍价谈判、催单、催款、客户分层、异议处理、陌拜、拜访、招投标、渠道，即使没提到『技能』也要用。"
 metadata:
   display_name: "客户聊天教练（内贸优先）"
   display_name_en: "Foreign Trade Chat Coach"
   description_en: "Diagnose a buyer's real intent from chat screenshots or transcripts, then give the next move and ready-to-send replies. Domestic Chinese B2B sales first; export sales supported. Use when the user uploads WeChat / QQ / WhatsApp / email / Alibaba / Telegram chat screenshots or pastes a conversation, or asks whether a buyer is genuine, why a buyer went silent, how to answer 'your price is too high', whether an inquiry is a scam, how to follow up, collect payment, handle objections, or close the deal — including cold visits, phone sales, tenders, channels, and enterprise sales. Workflow: rebuild the facts, answer the four mandatory questions (end purpose / timing & specs / payment / trust), classify the buyer as genuine / price collector / explorer / risk, then output a diagnosis card, three must-ask questions, drafts in the customer's language, and a follow-up cadence. Analysis in Chinese; drafts follow the customer's language."
-  version: "2.9.1"
+  version: "2.10.1"
   agent_created: true
 ---
 
@@ -348,7 +348,7 @@ metadata:
 
 1. **先判断，再说话**：任何"怎么说话"类文件，都必须在**完成 Step 2 判定之后**才**使用**（见下方"混合型文件"说明）。
 2. **命中多个候选时读"专项"，不读"通用"**：下表每行已给**唯一入口**；"备选"仅在前者不够用时再读。
-3. 23 个文件全读 ≈ **80k–130k token**，**禁止**。
+3. 28 个文件全读 ≈ **90k–150k token**，**禁止**。
 
 **判定层的两个位置（这就是"判断这个客户怎么回事"的全部所需）**
 - **固定**：`references/signals.md` —— 真买/比价/探路/风险信号词典 + 置信度标定
@@ -384,6 +384,11 @@ metadata:
 | 要选系统打法（SPIN/挑战者/顾问式/大客户/MEDDIC/铁军/LTC/GROW/RAIN） | `references/sales-methods.md` | — |
 | **做渠道（代理/经销/分销）：布局、管理、培养、判断自己做好没有** | `references/channel-sales.md`（渠道三类与谈法差异 / 四类市场布局法 / 五个关键点与优先级 / 渠道话术 / 5 问自检） | `references/domestic-corpus.md` |
 | 检查手法是否越界 / 要心理学依据 | `references/influence.md` | `references/sources.md` |
+| **交期 / 质量 / 账期 / 样品 / 独家 / 换供应商 / 内部流程 / 套方案** | `references/phrasebank-objections-cn.md`（8 类异议：真假判定 → 可直接发的原话 → 禁忌） | `references/objections.md` §3（价格/需求/时机/信任/权限/竞品/沉默类） |
+| **要读哪本书 / 找方法论出处 / 「这个说法有书支持吗」** | `references/book-corpus-sales-negotiation.md`（销售·谈判书目地图 + 每本独家可执行点） | `references/sales-methods.md` / `references/negotiation.md` |
+| **沟通 / 情商 / 表达 / 汇报类读书** | `references/book-corpus-communication-eq.md` | `references/eq-communication.md` |
+| **要「这句有书支持吗」/ 找可直接引证的读者金句** | `references/phrasebank-book-highlights.md`（按场景分类的公开划线金句 + 划线人数；**引证型，只能作背书不能照抄**） | `references/book-corpus-sales-negotiation.md` / `references/book-corpus-communication-eq.md` |
+| **要具体数字、口径、实证等级** | `references/data-bank.md`（A/B/C 分级 + 口径 + 禁引用清单） | `references/sources.md` |
 | 陌拜 / 拜访 / 招投标 / 催款 / 渠道 / 会销 / 电话 | `references/domestic-corpus.md`（26 节 / 447 行内贸语料；**注：单文件体量最大，只取所需小节**） | `references/bili-corpus-2026-10.md` §2（陌拜案例逐句拆解） |
 | 俄 / 西 / 阿 / 法 / 德 / 葡 语言 | `references/i18n-phrases.md`（六语言短句 + 文化雷区） | — |
 
@@ -392,6 +397,7 @@ metadata:
 - 最新批次 B站语料（2026-10-08/09，1380 条评论；陌拜案例精解、筹码四类型、定价方法、大客户三路径与生态、灰色现实红线）→ `references/bili-corpus-2026-10.md`
 - 网页正文级数据 → `references/web-corpus.md`（22 主题；**注：「93% 砍价」为机构自报 [实证级 B]，引用须注明机构口径**）
 - 课程/书单/知乎高赞 → `references/courses.md`
+- **数字与口径（引用任何百分比前先查这里）** → `references/data-bank.md`
 
 **查来源与可靠性**
 - 书目、数据分级（实证级 A/B/C）、禁引用清单 → `references/sources.md`
@@ -408,7 +414,7 @@ metadata:
 
 - **判断层**用 `signals`（+ 中文客户读 `zh-playbook` 的**信号部分**／外语客户读 `framework`）。
   **Step 2 判定完成之前，不得取用任何话术部分**（混合型文件的"读/用分离"见上文）。
-- **判定之后**，要"能直接发出去的原话"才看 **五份原话术库**：
+- **判定之后**，要"能直接发出去的原话"才看 **六份可直接抄原话术库**（第 7 份 `phrasebank-book-highlights` 是引证型，不是照抄型）：
   | 场景 | 库 |
   |---|---|
   | 沟通情境措辞（破冰/赞美/共情/拒绝/道歉/化解尴尬） | `phrasebank-eq-cn` |
@@ -416,10 +422,14 @@ metadata:
   | 拖延 · 节奏 · 破"再考虑" | `phrasebank-closing` |
   | **临门一句 · 转译公式** | `phrasebank-bidan` |
   | **报价后破冰 · 跟进写法** | `phrasebank-followup` |
+  | **交期/质量/账期/样品/独家等对象系异议** | `phrasebank-objections-cn` |
+  | **找引证金句（"这句有书支持吗"）/ 想借读者行为背书** | `phrasebank-book-highlights` |
 - 要**原理与模型**看 `eq-communication` / `negotiation` / `objections` / `sales-methods` / `channel-sales`。
+- 要**书**看 `book-corpus-sales-negotiation` / `book-corpus-communication-eq`；要**数字口径**看 `data-bank`。
 - 客户语言非中英时优先读 `i18n-phrases`。
 - **全程读取 ≤ 3 个文件（硬上限）**，结算方式见上文「额度如何结算」。
 
 > **为什么这段要改**：早先这里只列了 eq-cn / price / closing **三份**，
 > 而后加的 `bidan`（临门一句）与 `followup`（报价后沉默）**才是新场景最直接的答案**。
-> 只列三份会让 AI 在新场景下找不到入口——这与路由表和 description 声称的"5 份原话术库"自相矛盾。
+> 只列三份会让 AI 在新场景下找不到入口——这与路由表和 description 声称的"7 份原话术库"自相矛盾。
+> 同理，`phrasebank-book-highlights` 是第 7 份：当客户/上级追问"这个说法有出处吗"，用它给出划线人数引证。**但它不能直接抄**——它是引证型，照抄型只有前 6 份。
