@@ -69,7 +69,7 @@ trade-chat-coach/
 
 | 层 | 工具 | 断言数 | 查什么 |
 |---|---|---|---|
-| 1 结构 | `validate_skill_full.py` | **43** | frontmatter / 引用完整性 / Evals 资产 / 编码行尾 / 内容一致性 / 发布就绪 |
+| 1 结构 | `validate_skill_full.py` | **44** | frontmatter / 引用完整性 / Evals 资产 / 编码行尾 / 内容一致性 / 发布就绪 |
 | 2 上游契约 | 官方 `quick_validate.py` | — | frontmatter 白名单键 + 描述长度（须 `PYTHONUTF8=1`） |
 | 3 产物 | `verify_artifact.py` | — | `.skill`/zip 顶层唯一、refs 与 fixtures **动态对齐源目录**、无 evals、无跨平台路径问题、CRC |
 | 4 行为路由 | `smoke_e2e.py` | **65** | 28 个引用可解析、章节锚点真存在、9 类提问一步定位、术语有定义、红线成章 |
