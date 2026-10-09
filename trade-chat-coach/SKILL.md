@@ -5,7 +5,7 @@ metadata:
   display_name: "客户聊天教练（内贸优先）"
   display_name_en: "Foreign Trade Chat Coach"
   description_en: "Diagnose a buyer's real intent from chat screenshots or transcripts, then give the next move and ready-to-send replies. Domestic Chinese B2B sales first; export sales supported. Use when the user uploads WeChat / QQ / WhatsApp / email / Alibaba / Telegram chat screenshots or pastes a conversation, or asks whether a buyer is genuine, why a buyer went silent, how to answer 'your price is too high', whether an inquiry is a scam, how to follow up, collect payment, handle objections, or close the deal — including cold visits, phone sales, tenders, channels, and enterprise sales. Workflow: rebuild the facts, answer the four mandatory questions (end purpose / timing & specs / payment / trust), classify the buyer as genuine / price collector / explorer / risk, then output a diagnosis card, three must-ask questions, drafts in the customer's language, and a follow-up cadence. Analysis in Chinese; drafts follow the customer's language."
-  version: "2.10.1"
+  version: "2.10.2"
   agent_created: true
 ---
 
@@ -72,8 +72,8 @@ metadata:
 用户最常见的输入是几张聊天截图，顺序和残缺会直接决定判断对错。
 
 1. **逐张读图**，按时间顺序重建对话。多张时先确认顺序（看时间戳/滚动位置）；顺序错了，整个判断就错了。必要时在输出里写明"我按 X 顺序理解"。
-   - **读图失败的兜底（优先级递进）**：① 首选本机 PaddleOCR Python 包（`C:\Users\iamly\.paddleocr-venv\Scripts\python.exe D:\deepseek\research_toolbox\ocr_paddle.py <截图>`；⚠️ **包外脚本，换机需先确认存在**）；② 备选 PaddleOCR-json（`D:\deepseek\research_toolbox\ocr.py <截图>`）；③ 都不可用时，告诉用户"麻烦把这屏对话文字贴给我"并确认关键字段。
-     - ⚠️ 上述为**本机路径**，换机/换用户环境需自行替换（可用 `Test-Path` 先探活）。
+   - **读图失败的兜底（优先级递进）**：① 首选本机 PaddleOCR Python 包（`%USERPROFILE%\.paddleocr-venv\Scripts\python.exe <工具仓库>\ocr_paddle.py <截图>`；⚠️ **包外脚本，换机需先确认存在**）；② 备选 PaddleOCR-json（`<工具仓库>\ocr.py <截图>`）；③ 都不可用时，告诉用户"麻烦把这屏对话文字贴给我"并确认关键字段。
+     - ⚠️ 上述 `%USERPROFILE%` / `<工具仓库>` 为**占位符**，按本机实际路径替换（可用 `Test-Path` 先探活）。
    - ⚠️ **OCR 的两个已知偏差（会直接影响判断，务必处理）**：
      (a) **置信度实测 0.90–1.00**，不是 0.95 起步；**低置信行往往恰是关键问句**（如"含不含运费和安装？"），不要因为分数低就跳过，低于 0.90 的行标"存疑"。
      (b) **OCR 会打乱聊天气泡顺序**（同一屏上下两条可能被交错读取）。第 1 步强调过"顺序错了整个判断就错了"——因此 **必须按 y 坐标 + 时间戳二次校对发言顺序**，交错处标注"顺序存疑"，并在输出里写明"我按 X 顺序理解"。
