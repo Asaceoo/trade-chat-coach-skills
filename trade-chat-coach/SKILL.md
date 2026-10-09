@@ -5,7 +5,7 @@ metadata:
   display_name: "客户聊天教练（内贸优先）"
   display_name_en: "Foreign Trade Chat Coach"
   description_en: "Diagnose a buyer's real intent from chat screenshots or transcripts, then give the next move and ready-to-send replies. Domestic Chinese B2B sales first; export sales supported. Use when the user uploads WeChat / QQ / WhatsApp / email / Alibaba / Telegram chat screenshots or pastes a conversation, or asks whether a buyer is genuine, why a buyer went silent, how to answer 'your price is too high', whether an inquiry is a scam, how to follow up, collect payment, handle objections, or close the deal — including cold visits, phone sales, tenders, channels, and enterprise sales. Workflow: rebuild the facts, answer the four mandatory questions (end purpose / timing & specs / payment / trust), classify the buyer as genuine / price collector / explorer / risk, then output a diagnosis card, three must-ask questions, drafts in the customer's language, and a follow-up cadence. Analysis in Chinese; drafts follow the customer's language."
-  version: "2.10.4"
+  version: "2.10.5"
   agent_created: true
 ---
 
@@ -431,5 +431,5 @@ metadata:
 
 > **为什么这段要改**：早先这里只列了 eq-cn / price / closing **三份**，
 > 而后加的 `bidan`（临门一句）与 `followup`（报价后沉默）**才是新场景最直接的答案**。
-> 只列三份会让 AI 在新场景下找不到入口——这与路由表和 description 声称的"7 份原话术库"自相矛盾。
+> 只列三份会让 AI 在新场景下找不到入口，与路由表和 description 的话术库数量声称自相矛盾。
 > 同理，`phrasebank-book-highlights` 是第 7 份：当客户/上级追问"这个说法有出处吗"，用它给出划线人数引证。**但它不能直接抄**——它是引证型，照抄型只有前 6 份。
